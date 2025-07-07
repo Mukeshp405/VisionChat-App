@@ -1,6 +1,5 @@
 from kivy.config import Config
 Config.set('graphics', 'resizable', False)
-# Config.set('graphics', 'borderless', '1')
 from kivy.properties import StringProperty
 from kivy.uix.filechooser import ScreenManager
 from kivymd.app import MDApp
@@ -30,7 +29,6 @@ Window.set_icon("assets/images/favicon2.png")
 # VisionChat
 class VisionChat(MDApp):
     username = StringProperty(allownone=True)
-    # password = StringProperty(allownone=True)
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.user = Home()
