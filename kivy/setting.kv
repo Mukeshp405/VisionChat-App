@@ -1,0 +1,142 @@
+# Responsive Setting Screen
+<Setting>:
+    name: "Setting"
+
+    MDFloatLayout:
+        id: SettingContainer
+        md_bg_color: "#1c1c1c"
+
+        MDNavigationLayout:
+
+            MDTopAppBar:
+                md_bg_color: "#ad7102"
+                pos_hint: {'top': 1}
+                size_hint_y: 0.07
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    
+                    MDIconButton:
+                        icon: 'arrow-left-thick'
+                        theme_icon_color: 'Custom'
+                        icon_color: "white"
+                        on_release: 
+                            root.manager.current = "Home"
+                            root.manager.transition.direction = "right"
+                    
+                    MDLabel:
+                        text: 'Setting'
+                        halign: 'center'
+                        color: 1,1,1,1
+                        padding: ('0dp', '0dp', '0dp', '20dp')
+                    
+                    MDIconButton:
+                        icon: 'arrow-all'
+                        theme_icon_color: 'Custom'
+                        icon_color: "#ad7102"
+                        # icon_color: "white"
+                        # on_release: 
+                            # app.root.get_screen("Setting").show_qr_dialog()
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: dp(20), dp(20), dp(20), dp(20)
+            spacing: dp(20)
+            size_hint: 1, None
+            height: self.minimum_height
+            pos_hint: {'center_x': 0.5, 'top': 0.9}
+            adaptive_height: True
+
+            # Theme
+            MDBoxLayout:
+                orientation: 'horizontal'
+                adaptive_height: True
+
+                MDLabel:
+                    id: theme_name
+                    text: 'Theme :'        
+                    theme_text_color: 'Custom'
+                    text_color: "white"
+                    font_size: "20dp"
+                    size_hint_x: 0.8
+
+                MDIconButton:
+                    id: theme_button
+                    icon: "weather-sunny"
+                    theme_icon_color: 'Custom'
+                    icon_color: "orange"
+                    on_release: 
+                        app.root.get_screen("Setting").change_theme()
+
+            MDNavigationDrawerDivider:
+                color: "gray"
+                size_hint_x: 1
+
+            # Support Email
+            MDBoxLayout:
+                orientation: 'horizontal'
+                adaptive_height: True
+                spacing: dp(7)
+
+                MDIcon:
+                    icon: "email-outline"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+
+                MDLabel:
+                    text: 'Support-Email :'        
+                    theme_text_color: 'Custom'
+                    text_color: "white"
+                    font_size: "20dp"
+
+            MDLabel:
+                text: 'mukeshp30050@gmail.com'
+                theme_text_color: 'Custom'
+                text_color: "orange"
+                padding: (dp(10), 0)
+                font_size: "16dp"
+                halign: "left"
+
+            MDNavigationDrawerDivider:
+                color: "gray"
+                size_hint_x: 1
+
+            # Delete and Logout Buttons
+            MDBoxLayout:
+                orientation: 'vertical'
+                adaptive_height: True
+                spacing: dp(10)
+
+                MDRoundFlatIconButton:
+                    text: 'Delete Account'
+                    icon: 'account-outline'
+                    line_color: "orange"
+                    text_color: "orange"
+                    icon_color: "orange"
+                    on_release: 
+                        app.root.get_screen("Setting").delete_account()
+
+                MDRoundFlatIconButton:
+                    text: 'Logout Account'
+                    icon: 'logout'
+                    line_color: "orange"
+                    text_color: "orange"
+                    icon_color: "orange"
+                    on_release: 
+                        app.root.get_screen("Setting").logout_account()
+
+            MDNavigationDrawerDivider:
+                color: "gray"
+                size_hint_x: 1
+
+            # Version
+            MDBoxLayout:
+                orientation: 'horizontal'
+                adaptive_height: True
+
+                MDLabel:
+                    text: 'Version: 1.0.1'        
+                    theme_text_color: 'Custom'
+                    text_color: "gray"
+                    font_size: "14dp"
+                    halign: 'center'

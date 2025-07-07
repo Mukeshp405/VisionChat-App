@@ -1,0 +1,127 @@
+# Register
+<Register>:
+    name: "Register"
+    MDNavigationLayout:
+        MDTopAppBar:
+            pos_hint: {'top': 1}
+            size_hint: (1, 0.07)
+            md_bg_color: "orange"
+            MDIconButton:
+                icon: 'arrow-left-thick'
+                theme_icon_color: "Custom"
+                icon_color: (1, 1, 1, 1)
+                on_press: 
+                    root.manager.current = "Dashboard"
+                    root.manager.transition.direction = "right"
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        adaptive_height: True
+        adaptive_width: True
+        spacing: 20
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        Image:
+            source: "assets/images/p1.png"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint: (None, None)
+            width: 120
+            height: 120
+        
+        MDLabel:
+            text: 'Sign Up'
+            font_style: "H4"
+            bold: True
+            halign: 'center'
+
+        MDGridLayout:
+            cols: 1
+            adaptive_height: True
+            adaptive_width: True
+            MDTextField:
+                id: firstname
+                hint_text: "Full Name"
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'account'
+                size_hint: (None, None)
+                width: 250
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 15
+
+            MDTextField:
+                id: username
+                hint_text: "Username"
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'account'
+                size_hint: (None, None)
+                width: 250
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 15
+
+            MDTextField:
+                id: email
+                hint_text: "Email"
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'email'
+                size_hint: (None, None)
+                width: 250
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 15
+
+            
+            MDTextField:
+                id: password
+                hint_text: "Password"
+                password: True
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'eye-off'
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 15
+
+
+        MDRectangleFlatButton:
+            text: 'Register'
+            text_color: "white"
+            line_color: "orange"
+            md_bg_color: "orange"
+            font_size: 15
+            on_release: 
+                app.root.get_screen("OTP_Page").send_otp()
+                # app.root.get_screen("Register").send_otp()
+                # app.root.get_screen("Register").add_otp_dialog()
+        
+    MDNavigationLayout:
+        MDTopAppBar:
+            md_bg_color: "orange"
+            size_hint: (1, 0.07)
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDLabel:
+                    text: 'Already have an account?'
+                    font_size: 20
+                    theme_text_color: 'Custom'
+                    text_color: "white"
+                    halign: 'center'
+                    padding: ('0dp', '0dp', '0dp', '20dp')
+
+                MDTextButton:
+                    text: 'Sign In'
+                    halign: 'center'
+                    theme_text_color: 'Custom'
+                    text_color: "blue"
+                    font_size: 15
+                    padding: ('0dp', '30dp', '50dp', '15dp')
+                    on_press: 
+                        root.manager.current = "Login"
+                        root.manager.transition.direction = "left"

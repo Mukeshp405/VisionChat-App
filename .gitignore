@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+myenv/
+ENV/
+.venv/
+
+# dotenv files
+.env
+.env.*
+
+# VSCode settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS files
+.DS_Store
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Screenshot folder
+screenshot/
+screenshots/

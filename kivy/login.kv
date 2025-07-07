@@ -1,0 +1,100 @@
+# Login
+<Login>:
+    name: "Login"
+    MDNavigationLayout:
+        MDTopAppBar:
+            pos_hint: {'top': 1}
+            size_hint: (1, 0.07)
+            md_bg_color: "orange"
+            MDIconButton:
+                icon: 'arrow-left-thick'
+                theme_icon_color: "Custom"
+                icon_color: (1, 1, 1, 1)
+                on_release: 
+                    root.manager.current = "Dashboard"
+                    root.manager.transition.direction = "right"
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        adaptive_height: True
+        adaptive_width: True
+        spacing: 20
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        Image:
+            source: "assets/images/p1.png"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint: (None, None)
+            width: 120
+            height: 120
+        
+        MDLabel:
+            text: 'Log In'
+            font_style: "H4"
+            bold: True
+            halign: 'center'
+
+        MDGridLayout:
+            cols: 1
+            adaptive_height: True
+            adaptive_width: True
+            spacing: '10dp'
+            MDTextField:
+                id: usernameoremail
+                hint_text: "Username or Email"
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'account'
+                size_hint: (None, None)
+                width: 300
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 20
+
+            
+            MDTextField:
+                id: lpassword
+                hint_text: "Password"
+                password: True
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'eye-off'
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 20
+
+
+            MDRectangleFlatButton:
+                text: 'Login'
+                text_color: "white"
+                line_color: "orange"
+                md_bg_color: "orange"
+                font_size: 20
+                on_release: app.root.get_screen("Login").login()
+        
+    MDNavigationLayout:
+        MDTopAppBar:
+            md_bg_color: "orange"
+            size_hint: (1, 0.07)
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDLabel:
+                    text: 'New to VisionChat?'
+                    font_size: 20
+                    theme_text_color: 'Custom'
+                    text_color: "white"
+                    halign: 'center'
+                    padding: ('20dp', '0dp', '0dp', '20dp')
+
+                MDTextButton:
+                    text: 'Sign Up'
+                    halign: 'center'
+                    theme_text_color: 'Custom'
+                    text_color: "blue"
+                    font_size: 15
+                    pos_hint: {'center_x': 1,'center_y': 1}
+                    padding: ('0dp', '30dp', '50dp', '15dp')
+                    on_press: 
+                        root.manager.current = "Register"
+                        root.manager.transition.direction = "left"

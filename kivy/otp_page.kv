@@ -1,0 +1,76 @@
+# OTP Page
+<OTP>
+    name: "OTP_Page"
+    # md_bg_color: "#1c1c1c"
+
+    # Navigation Bar
+    MDNavigationLayout:
+        MDTopAppBar:
+            md_bg_color: "#ad7102"
+            pos_hint: {'top': 1}
+            size_hint: (1, 0.07)
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+
+                # Left Arrow
+                MDIconButton:
+                    icon: 'arrow-left-thick'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release: 
+                        root.manager.current = "Register"
+                        root.manager.transition.direction = "right"
+                
+                # OTP Label
+                MDLabel:
+                    text: 'OTP'
+                    halign: 'center'
+                    color: 1,1,1,1
+                    padding: ('0dp', '0dp', '0dp', '20dp')
+    
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        adaptive_width: True
+        adaptive_height: True
+        spacing: 20
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        Image:
+            source: "assets/images/p1.png"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint: (None, None)
+            width: 120
+            height: 120
+        
+        MDLabel:
+            text: 'Enter OTP'
+            font_style: "H5"
+            bold: True
+            halign: 'center'
+
+        MDGridLayout:
+            cols: 1
+            adaptive_height: True
+            adaptive_width: True
+            MDTextField:
+                id: enter_otp
+                hint_text: "Enter otp send to your email: "
+                hint_text_color_focus: "orange"
+                icon_left_color_focus: "orange"
+                line_color_focus: "orange"
+                text_color_focus: "orange"
+                icon_left: 'message-outline'
+                size_hint: (None, None)
+                width: 250
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                font_size: 20
+
+            MDRectangleFlatButton:
+                text: 'Submit'
+                text_color: "white"
+                line_color: "orange"
+                md_bg_color: "orange"
+                font_size: 20
+                on_release: app.root.get_screen("OTP_Page").check_otp()
+        

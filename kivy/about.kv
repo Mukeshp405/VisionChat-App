@@ -1,0 +1,239 @@
+# About
+<About>
+    name: "About"
+    md_bg_color: "#1c1c1c"
+
+    # Navigation Bar
+    MDNavigationLayout:
+        MDTopAppBar:
+            md_bg_color: "#ad7102"
+            pos_hint: {'top': 1}
+            size_hint: (1, 0.07)
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                
+                # Left Arrow
+                MDIconButton:
+                    icon: 'arrow-left-thick'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release: 
+                        root.manager.current = "Home"
+                        root.manager.transition.direction = "right"
+                
+                # Profile Label
+                MDLabel:
+                    text: 'About'
+                    halign: 'center'
+                    color: 1,1,1,1
+                    padding: ('0dp', '0dp', '0dp', '20dp')
+                
+                # Setting Button
+                MDIconButton:
+                    icon: 'cog-outline'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release:
+                        root.manager.current = "Setting"
+                        root.manager.transition.direction = "left"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: ('30dp', '60dp', '30dp', '10dp')
+        # Scrollable Content
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: ('30dp', '20dp', '30dp', '10dp')
+                spacing: '10dp'
+                size_hint_y: None
+                height: self.minimum_height
+                md_bg_color: 0.12, 0.12, 0.12, 1  # dark gray background
+
+                # Logo and Title Section
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: '10dp'
+                    padding: 0, 0, 0, 10
+
+                    Image:
+                        source: "assets/images/logo4.png"
+                        size_hint: None, None
+                        size: dp(150), dp(150)
+                        pos_hint: {'center_x': 0.5}
+
+                    MDLabel:
+                        text: 'VisionChat'
+                        font_style: 'H4'
+                        halign: 'center'
+                        theme_text_color: 'Custom'
+                        text_color: 1, 1, 1, 1
+                        size_hint_y: None
+                        height: dp(40)
+                        # md_bg_color: "orange"
+                        pos_hint: {'center_x': 0.5}
+
+                    MDSeparator:
+                        height: "2dp"
+                        color: 1, 0.45, 0, 1  # orange line
+
+                # App Info Section Heading
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: dp(30)
+                    MDIcon:
+                        icon: "information-outline"
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.45, 0, 1
+                    MDLabel:
+                        text: "App Info"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.45, 0, 1
+                        font_style: "Subtitle1"
+
+                MDList:
+                    OneLineIconListItem:
+                        text: "Version: 1.0.0"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        IconLeftWidget:
+                            icon: "application"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                # Developer Info Section Heading
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: dp(30)
+                    MDIcon:
+                        icon: "account-circle-outline"
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.45, 0, 1
+                    MDLabel:
+                        text: "Developer Info"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.45, 0, 1
+                        font_style: "Subtitle1"
+
+                MDList:
+                    OneLineIconListItem:
+                        text: "Developed by: Mukesh Prajapati"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        IconLeftWidget:
+                            icon: "account"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "Contact: +91 1902 300 800"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        IconLeftWidget:
+                            icon: "phone"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "Gmail: mukeshp30080@gmail.com"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        on_release:
+                            app.root.get_screen("About").open_url("mailto:mukeshp30080@gmail.com")
+                        IconLeftWidget:
+                            icon: "email"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "GitHub: Mukeshp405"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        on_release:
+                            app.root.get_screen("About").open_url("https://github.com/Mukeshp405")
+                        IconLeftWidget:
+                            icon: "github"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                # Help & Support Section Heading
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: "10dp"
+                    size_hint_y: None
+                    height: dp(30)
+                    MDIcon:
+                        icon: "help-circle-outline"
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.45, 0, 1
+                    MDLabel:
+                        text: "Help & Support"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 1, 0.45, 0, 1
+                        font_style: "Subtitle1"
+
+                MDList:
+                    OneLineIconListItem:
+                        text: "Privacy Policy"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        # on_release:
+                        #     app.root.get_screen("About").open_url("https://example.com/privacy")
+                        IconLeftWidget:
+                            icon: "file-document-outline"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "Terms of Service"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        # on_release:
+                        #     app.root.get_screen("About").open_url("https://example.com/terms")
+                        IconLeftWidget:
+                            icon: "file-certificate-outline"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "Acknowledgements"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        # on_release:
+                        #     app.root.get_screen("About").open_url("https://example.com/acknowledgements")
+                        IconLeftWidget:
+                            icon: "handshake-outline"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "Support"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        # on_release:
+                        #     app.root.get_screen("About").open_url("https://example.com/support")
+                        IconLeftWidget:
+                            icon: "lifebuoy"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
+
+                    OneLineIconListItem:
+                        text: "Report a Bug"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        # on_release:
+                        #     app.root.get_screen("About").open_url("https://example.com/report-bug")
+                        IconLeftWidget:
+                            icon: "bug"
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1

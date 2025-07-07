@@ -1,0 +1,91 @@
+<Features>:
+    name: "Features"
+    md_bg_color: "#1c1c1c"
+
+    BoxLayout:
+        orientation: "vertical"
+
+        # Top App Bar
+        MDTopAppBar:
+            md_bg_color: "#ad7102"
+            size_hint_y: 0.07
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+
+                # Back Button
+                MDIconButton:
+                    icon: 'arrow-left-thick'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release: 
+                        root.manager.current = "Home"
+                        root.manager.transition.direction = "down"
+
+                # Title
+                MDLabel:
+                    text: 'Vision Modules'
+                    halign: 'center'
+                    color: 1,1,1,1
+                    size_hint_x: 1
+                    padding: ('0dp', '0dp', '0dp', '20dp')
+
+                # Settings Button
+                MDIconButton:
+                    icon: 'cog-outline'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release:
+                        root.manager.current = "Setting"
+                        root.manager.transition.direction = "left"
+
+        # Scrollable List of Features
+        ScrollView:
+            MDList:
+                padding: dp(10)
+                spacing: dp(10)
+                md_bg_color: "orange"
+
+                TwoLineListItem:
+                    text: 'Face Emotion Detection'
+                    secondary_text: 'This is first feature'
+                    on_release: 
+                        app.root.get_screen("Home").toggle_face_emotion()
+
+                TwoLineListItem:
+                    text: 'Face Distance Measurement'
+                    secondary_text: 'This is second feature'
+                    on_release: 
+                        app.root.get_screen("Home").toggle_face_distance()
+
+                TwoLineListItem:
+                    text: 'Virtual Paint'
+                    secondary_text: 'This is third feature'
+                    on_release: 
+                        # app.root.get_screen("Features").virtual_paint()
+                        app.root.get_screen("Home").toggle_virtual_paint()
+                        # app.root.get_screen("Home").start_virtual_painter()
+
+                TwoLineListItem:
+                    text: 'Balloon Pop Game Using Hand Gestures'
+                    secondary_text: 'This is fourth feature'
+                    on_release: 
+                        app.root.get_screen("Home").toggle_bulloon_pop_game()
+
+                TwoLineListItem:
+                    text: 'Pong Game Using Hand Gestures'
+                    secondary_text: 'This is fifth feature'
+                    on_release: 
+                        app.root.get_screen("Home").toggle_pong_game()
+
+                # TwoLineListItem:
+                #     text: 'Blink Gesture'
+                #     secondary_text: 'This is sixth feature'
+                #     on_release: 
+                #         app.root.get_screen("Features").blink_gesture()
+
+                TwoLineListItem:
+                    text: 'Gesture Volume Control'
+                    secondary_text: 'This is seventh feature'
+                    on_release: 
+                        app.root.get_screen("Home").toggle_volume_control()

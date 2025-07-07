@@ -1,0 +1,70 @@
+# Search
+<Search>
+    name: "Search"
+    md_bg_color: "#1c1c1c"
+
+    # Navigation Bar
+    MDNavigationLayout:
+        MDTopAppBar:
+            md_bg_color: "#ad7102"
+            pos_hint: {'top': 1}
+            size_hint: (1, 0.07)
+            # right_action_items: [["magnify", lambda x: app.root.get_screen("Search").show_search_field()]]
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                
+                # Left Arrow
+                MDIconButton:
+                    icon: 'arrow-left-thick'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release: 
+                        root.manager.current = "Home"
+                        root.manager.transition.direction = "down"
+                
+                # Search Label
+                MDLabel:
+                    text: 'Search'
+                    halign: 'center'
+                    color: 1,1,1,1
+                    padding: ('0dp', '0dp', '0dp', '20dp')
+
+                # # Search Button
+                # MDIconButton:
+                #     icon: 'magnify'
+                #     theme_icon_color: 'Custom'
+                #     icon_color: "white"
+                #     on_release:
+                #         root.manager.current = ""
+                #         root.manager.transition.direction = "left"
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: ('30dp', '60dp', '30dp', '0dp')
+        MDTextField:
+            id: search_field
+            icon_left: 'magnify'
+            icon_left_color_focus: "white"
+            icon_left_color_normal: "white"
+            hint_text: "Search user"
+            hint_text_color_focus: "white"
+            hint_text_color_normal: "white"
+            text_color_focus: "white"
+            text_color_normal: "white"
+            on_text: app.root.get_screen("Search").search_users(self.text)
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+            height: "60dp"
+            mode: "rectangle"
+            line_color_normal: "white"
+            line_color_focus: "white"
+        
+        
+        ScrollView:
+            size_hint_y: 0.8
+            pos_hint: {"top": 0.75}
+            
+            MDList:
+                id: user_list
+                padding: ('70dp', '20dp', '0dp', '0dp')

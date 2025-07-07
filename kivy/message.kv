@@ -1,0 +1,97 @@
+<Message>:
+    name: "Message"
+    md_bg_color: "#1c1c1c"
+
+    # Navigation Bar
+    MDNavigationLayout:
+        MDTopAppBar:
+            md_bg_color: "#ad7102"
+            pos_hint: {'top': 1}
+            size_hint: (1, 0.07)
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                
+                # Left Arrow
+                MDIconButton:
+                    icon: 'arrow-left-thick'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release: 
+                        root.manager.current = "Home"
+                        root.manager.transition.direction = "right"
+                
+                # Reveiver Label
+                MDLabel:
+                    id: receiver_label
+                    text: '.'
+                    halign: 'center'
+                    color: 1,1,1,1
+                    padding: ('0dp', '0dp', '0dp', '20dp')
+                
+                # Setting Button
+                MDIconButton:
+                    icon: 'cog-outline'
+                    theme_icon_color: 'Custom'
+                    icon_color: "white"
+                    on_release:
+                        root.manager.current = "Setting"
+                        root.manager.transition.direction = "left"
+    MDBoxLayout:
+        orientation: "vertical"
+        # padding: dp(10)
+        padding: ('10dp', '60dp', '10dp', '10dp')
+        spacing: dp(10)
+        color: "white"
+
+        # MDTextField:
+        #     id: sender_input
+        #     hint_text: "Your username"
+        #     mode: "rectangle"
+        #     size_hint_y: None
+        #     height: dp(40)
+
+        # MDTextField:
+        #     id: receiver_input
+        #     hint_text: "Recipient username"
+        #     mode: "rectangle"
+        #     size_hint_y: None
+        #     height: dp(40)
+
+        ScrollView:
+            id: scroll_view
+            MDBoxLayout:
+                id: chat_messages
+                padding: ('10dp', '0dp', '20dp', '0dp')
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+                theme_text_color: "Custom"
+                text_color: "white"
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: dp(60)
+
+            MDTextField:
+                id: chat_input
+                hint_text: "Type your message"
+                hint_text_color_focus: "orange"
+                hint_text_color_normal: "orange"
+                line_color_focus: "orange"
+                line_color_normal: "orange"
+                text_color_focus: "orange"
+                text_color_normal: "orange"
+                mode: "rectangle"
+                on_text_validate: root.send_message()
+
+            MDIconButton:
+                icon: "send"
+                theme_icon_color: "Custom"
+                icon_color: "orange"
+                size_hint_x: None
+                padding: ('0dp', '0dp', '0dp', '10dp')
+                width: dp(50)
+                on_release: root.send_message()
+

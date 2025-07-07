@@ -1,0 +1,31 @@
+# DashBoard
+<DashBoard>
+    name:"Dashboard"
+    MDFloatLayout:  
+        md_bg_color: "orange"
+        Image:
+            source: "assets/images/p5.png" 
+        MDGridLayout:
+            rows: 2
+            spacing: 9
+            adaptive_height: True
+            padding: ('20dp', 0, '20dp', '20dp')
+            MDFillRoundFlatIconButton:
+                icon: 'login'
+                text: 'Login'
+                font_size: 20
+                size_hint: 0.5, 0.5
+                md_bg_color: "white"
+                text_color: "black"
+                icon_color: "black"
+                on_press: 
+                    root.manager.current="Login"
+                    root.manager.transition.direction="left"
+            MDFillRoundFlatIconButton:
+                icon: 'account-plus'
+                text: 'Register'
+                font_size: 20
+                size_hint: 0.5, 0.5
+                on_press:
+                    root.manager.current="Register"
+                    root.manager.transition.direction="left"
