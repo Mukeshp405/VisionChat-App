@@ -127,7 +127,7 @@ DBNAME=visionchat_db
   1. Clone the repository:
   ```bash
   git clone https://github.com/Mukeshp405/VisionChat-App.git
-  cd visionchat
+  cd Visionchat-App
   ```
   2. Install dependencies:
   ```bash
